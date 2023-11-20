@@ -22,6 +22,8 @@ void  ft_checker(char c, va_list ap, unsigned int *i, unsigned int *ret)
 {
     if (c == 'c')
       ft_putchar(va_arg(ap, char), i);
+    else if (c == '%')
+      ft_putchar('%', i);
     else if (c == 's')
       ft_putstr(va_arg(ap, char *), i, ret);
     else if (c == 'd')
