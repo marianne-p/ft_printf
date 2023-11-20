@@ -29,7 +29,8 @@ void  ft_checker(char c, va_list ap, unsigned int *i)
       ft_putnbr(va_arg(ap, unsigned int), i);
     //else if (c == 'i')
     else if (c == 'x')
-      ft_to_hex(va_arg(ap, //??), i);
+      ft_to_hex(va_arg(ap, long int), i);
     else if (c == 'X')
-      ft_to_hex_up(va_arg(ap, /*hex*/);
+      ft_to_hex_up(va_arg(ap, long int), i);
+}
     
