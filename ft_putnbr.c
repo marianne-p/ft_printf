@@ -1,18 +1,15 @@
-static char	*check_alloc(int length)
+static char	*alloc_str(unsigned int length)
 {
 	char	*res;
 
 	res = (char *)malloc(length);
+	if (res == NULL)
+		return (NULL);
 	return (res);
 }
 
-static void	fill_up(int n, int i, char *res)
+static void	fill_up(long int n, unsigned int i, char *res)
 {
-	if (n == -2147483648)
-	{
-		res[i--] = '8';
-		n /= 10;
-	}
 	if (n < 0)
 	{
 		res[0] = '-';
@@ -25,7 +22,7 @@ static void	fill_up(int n, int i, char *res)
 	}
 }
 
-static	int	count_len(int length, int n)
+static	unsigned int	count_len(unsigned int length, long int n)
 {
 	while (n)
 	{
@@ -35,17 +32,15 @@ static	int	count_len(int length, int n)
 	return (length);
 }
 
-char	*ft_itoa(int n)
+void	ft_putnbr(long int nbr, unsigned int *ret, unsigned int i, unsigned int length)
 {
-	int		i;
-	int		length;
+//char	*ft_itoa(long int n)
 	char	*res;
 
-	length = 1;
-	if (n <= 0)
+	if (nbr <= 0)
 		length = 2;
-	length = count_len(length, n);
-	res = check_alloc(length);
+	length = count_len(length, nbr);
+	res = alloc_str(length);
 	if (res == NULL)
 		return (NULL);
 	i = length - 1;
@@ -56,5 +51,7 @@ char	*ft_itoa(int n)
 		return (res);
 	}
 	fill_up(n, i, res);
-	return (res);
+	ft_putstr(res, ret, 0);
+	free(res);
 }
+
