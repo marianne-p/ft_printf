@@ -54,4 +54,3 @@ void	ft_putnbr(long int nbr, unsigned int *ret, unsigned int i, unsigned int len
 	ft_putstr(res, ret, 0);
 	free(res);
 }
-
