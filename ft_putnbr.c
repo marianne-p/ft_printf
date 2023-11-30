@@ -34,9 +34,8 @@ static	unsigned int	count_len(unsigned int length, long int n)
 	return (length);
 }
 
-void	ft_putnbr(long int nbr, unsigned int *ret, unsigned int i, unsigned int length)
+int	ft_putnbr(long int nbr, int ret, unsigned int i, unsigned int length)
 {
-//char	*ft_itoa(long int n)
 	char	*res;
 
 	if (nbr <= 0)
@@ -44,15 +43,16 @@ void	ft_putnbr(long int nbr, unsigned int *ret, unsigned int i, unsigned int len
 	length = count_len(length, nbr);
 	res = alloc_str(length);
 	if (res == NULL)
-		return ;
+		return (-1);
 	i = length - 1;
 	res[i--] = '\0';
 	if (nbr == 0)
 	{
 		res[i] = '0';
-		return ;
+		return (1);
 	}
-	fill_up(n, i, res);
-	ft_putstr(res, ret, 0);
+	fill_up(nbr, i, res);
+	ret = ft_putstr(res, 0);
 	free(res);
+	return (ret);
 }

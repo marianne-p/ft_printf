@@ -7,15 +7,16 @@ unsigned int	ft_strlen(char *str, unsigned int count)
 	return (count);
 }
 
-void	ft_putchar(int a, unsigned int *ret)
+int	ft_putchar(int a, int ret)
 {
 	write(1, &a, 1);
-	*ret++;
+	ret++;
+	return (ret);
 }
 
-void	ft_putstr(char *str, unsigned int *ret, unsigned int i)
+int	ft_putstr(char *str, int ret)
 {
-	i = ft_strlen(str, 0);
-	write(1, str, i);
-	*ret += i;
+	ret = ft_strlen(str, 0);
+	write(1, str, ret);
+	return (ret);
 }
