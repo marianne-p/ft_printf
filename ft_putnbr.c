@@ -1,3 +1,5 @@
+#include "ft_printf.h"
+
 static char	*alloc_str(unsigned int length)
 {
 	char	*res;
@@ -42,13 +44,13 @@ void	ft_putnbr(long int nbr, unsigned int *ret, unsigned int i, unsigned int len
 	length = count_len(length, nbr);
 	res = alloc_str(length);
 	if (res == NULL)
-		return (NULL);
+		return ;
 	i = length - 1;
 	res[i--] = '\0';
-	if (n == 0)
+	if (nbr == 0)
 	{
 		res[i] = '0';
-		return (res);
+		return ;
 	}
 	fill_up(n, i, res);
 	ft_putstr(res, ret, 0);

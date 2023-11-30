@@ -1,15 +1,15 @@
 #include "ft_printf.h"
 
-int  ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list  ap;
 	char  *dest;
-	//unsigned int  i;
+	unsigned int  i;
 	unsigned int  ret;
 
 	i = 0;
 	va_start(ap, str);
-	va_copy(dest, src);
+	va_copy(dest, str);
 	while (str[i])
 	{
 		if (str[i++] == '%')

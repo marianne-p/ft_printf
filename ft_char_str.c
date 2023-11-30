@@ -1,3 +1,5 @@
+#include "ft_printf.h"
+
 unsigned int	ft_strlen(char *str, unsigned int count)
 {
 	while (str[count++])
@@ -5,7 +7,7 @@ unsigned int	ft_strlen(char *str, unsigned int count)
 	return (count);
 }
 
-void	ft_putchar(char a, unsigned int *ret)
+void	ft_putchar(int a, unsigned int *ret)
 {
 	write(1, &a, 1);
 	*ret++;
