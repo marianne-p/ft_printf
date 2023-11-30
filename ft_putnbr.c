@@ -48,7 +48,7 @@ int	ft_putnbr(long int nbr, int ret, unsigned int i, unsigned int length)
 	res[i--] = '\0';
 	if (nbr == 0)
 	{
-		res[i] = '0';
+		write(1, "0", 1);
 		return (1);
 	}
 	fill_up(nbr, i, res);

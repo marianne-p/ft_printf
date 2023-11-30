@@ -1,15 +1,14 @@
 #include "ft_printf.h"
+//#include <stdio.h>
 
 int	ft_printf(const char *str, ...)
 {
 	va_list  ap;
-	//char  *dest;
 	int	i;
 	unsigned int  ret;
 
 	i = 0;
 	va_start(ap, str);
-	/*va_copy(dest, str);*/
 	while (str[i])
 	{
 		if (str[i] == '%')
@@ -18,7 +17,8 @@ int	ft_printf(const char *str, ...)
 			ret += ft_checker(str[i], ap, 0);
 		}
 		else
-			ret += ft_putchar(str[i++], 0);
+			ret += ft_putchar(str[i], 0);
+		i++;
 	}
 	va_end(ap);
 	return (ret);

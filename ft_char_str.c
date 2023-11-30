@@ -2,8 +2,8 @@
 
 unsigned int	ft_strlen(char *str, unsigned int count)
 {
-	while (str[count++])
-		 ;
+	while (str[count])
+		count++;
 	return (count);
 }
 

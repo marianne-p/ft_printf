@@ -7,6 +7,11 @@ int	ft_to_hex(long int num, int ret)
 	char hexa_Number[17];
 
 	i = 0;
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
 	while (num != 0)
 	{
 		temp = num % 16;
@@ -18,7 +23,6 @@ int	ft_to_hex(long int num, int ret)
 		num = num / 16;
 	}
 	hexa_Number[i] = '\0';
-	ret += ft_putstr("0x", 0);
 	while (--i >= 0)
 	{
 		write(1, &hexa_Number[i], 1);
@@ -34,6 +38,11 @@ int	ft_to_hex_up(long int num, int ret)
 	char hexa_Number[17];
 
 	i = 0;
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
 	while (num != 0)
 	{
 		temp = num % 16;
@@ -45,7 +54,6 @@ int	ft_to_hex_up(long int num, int ret)
 		num = num / 16;
 	}
 	hexa_Number[i] = '\0';
-	ret += ft_putstr("0X", 0);
 	while (--i >= 0)
 	{
 		write(1, &hexa_Number[i], 1);
@@ -56,9 +64,10 @@ int	ft_to_hex_up(long int num, int ret)
 
 int	ft_ptr(uintptr_t ptr, int ret)
 {
-	unsigned int	num;
+	long int	num;
 
-	num = (unsigned int)ptr;
+	num = (long int)ptr;
+	ret += ft_putstr("0x", 0);
 	ret = ft_to_hex(num, ret);
 	return (ret);
 }
