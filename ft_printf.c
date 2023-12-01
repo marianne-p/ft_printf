@@ -33,11 +33,11 @@ int	ft_checker(char c, va_list ap, int ret)
 	else if (c == 's')
 		ret = ft_putstr(va_arg(ap, char *), 0);
 	else if (c == 'd')
-		ret = ft_putnbr(va_arg(ap, int), ret, 0, 1);
+		ret = ft_putnbr(va_arg(ap, int), ret);
 	else if (c == 'u')
-		ret = ft_putnbr(va_arg(ap, unsigned int), ret, 0, 1);
+		ret = ft_putnbr(va_arg(ap, unsigned int), ret);
 	else if (c == 'i')
-		ret = ft_putnbr(va_arg(ap, int), ret, 0, 1);
+		ret = ft_putnbr(va_arg(ap, int), ret);
 	else if (c == 'p')
 		ret = ft_ptr((uintptr_t)va_arg(ap, void *), ret);
 	else if (c == 'x')

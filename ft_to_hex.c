@@ -67,6 +67,11 @@ int	ft_ptr(uintptr_t ptr, int ret)
 	long int	num;
 
 	num = (long int)ptr;
+	if (ptr == 0)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
 	ret += ft_putstr("0x", 0);
 	ret = ft_to_hex(num, ret);
 	return (ret);
