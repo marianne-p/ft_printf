@@ -17,6 +17,6 @@ unsigned int	ft_strlen(char *str, unsigned int count);
 int				ft_putchar(int a, int ret);
 int				ft_putstr(char *str, int ret);
 /*numbers*/
-int				ft_putnbr(long int nbr, int ret, unsigned int i, unsigned int length);
+int				ft_putnbr(long int nbr, int ret);
 
 #endif
