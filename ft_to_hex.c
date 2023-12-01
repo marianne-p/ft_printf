@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	ft_to_hex(long int num, int ret)
+int	ft_to_hex(unsigned long int num, int ret)
 {
 	int	i;
 	int	temp;
@@ -31,7 +31,7 @@ int	ft_to_hex(long int num, int ret)
 	return (ret);
 }
 
-int	ft_to_hex_up(long int num, int ret)
+int	ft_to_hex_up(unsigned long int num, int ret)
 {
 	int	i;
 	int	temp;
@@ -66,7 +66,7 @@ int	ft_ptr(uintptr_t ptr, int ret)
 {
 	long int	num;
 
-	num = (long int)ptr;
+	num = (unsigned long int)ptr;
 	if (ptr == 0)
 	{
 		write(1, "(nil)", 5);

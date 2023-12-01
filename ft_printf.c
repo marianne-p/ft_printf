@@ -42,9 +42,9 @@ int	ft_checker(char c, va_list ap, int ret)
 	else if (c == 'p')
 		ret = ft_ptr((uintptr_t)va_arg(ap, void *), ret);
 	else if (c == 'x')
-		ret = ft_to_hex(va_arg(ap, long int), ret);
+		ret = ft_to_hex(va_arg(ap, unsigned int), ret);
 	else if (c == 'X')
-		ret = ft_to_hex_up(va_arg(ap, long int), ret);
+		ret = ft_to_hex_up(va_arg(ap, unsigned int), ret);
 	if (ret == -1)
 		return (0);
 	return (ret);
