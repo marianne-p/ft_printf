@@ -8,6 +8,7 @@ int	ft_printf(const char *str, ...)
 	unsigned int  ret;
 
 	i = 0;
+	ret = 0;
 	va_start(ap, str);
 	while (str[i])
 	{
