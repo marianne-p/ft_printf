@@ -6,25 +6,20 @@
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:16:51 by mpihur            #+#    #+#             */
-/*   Updated: 2023/12/02 17:19:31 by mpihur           ###   ########.fr       */
+/*   Updated: 2023/12/02 17:46:18 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*string(char *hexa_number, unsigned long int num, int temp)
+int	printer(char *hexa_number, int i, int ret)
 {
-	while (num != 0)
+	while (--i >= 0)
 	{
-		temp = num % 16;
-		if (temp < 10)
-			temp = temp + 48;
-		else
-			temp = temp + 87;
-		hexa_number[i++] = temp;
-		num = num / 16;
+		write(1, &hexa_number[i], 1);
+		ret++;
 	}
-	hexa_number[i] = '\0';
+	return (ret);
 }
 
 int	ft_to_hex(unsigned long int num, int ret)
@@ -34,34 +29,23 @@ int	ft_to_hex(unsigned long int num, int ret)
 	char	hexa_number[17];
 
 	i = 0;
-	temp = 0;
 	if (num == 0)
 	{
 		write(1, "0", 1);
 		return (1);
 	}
-	hexa_number = string(hexa_number, num, temp);
-	while (--i >= 0)
-	{
-		write(1, &hexa_number[i], 1);
-		ret++;
-	}
-	return (ret);
-}
-
-static char	*string_up(char *hexa_number, unsigned long int num, int temp)
-{
 	while (num != 0)
 	{
 		temp = num % 16;
 		if (temp < 10)
-			temp = temp + 48;
+			hexa_number[i++] = temp + 48;
 		else
-			temp = temp + 55;
-		hexa_number[i++] = temp;
+			hexa_number[i++] = temp + 87;
 		num = num / 16;
 	}
 	hexa_number[i] = '\0';
+	ret = printer(hexa_number, i, ret);
+	return (ret);
 }
 
 int	ft_to_hex_up(unsigned long int num, int ret)
@@ -71,18 +55,22 @@ int	ft_to_hex_up(unsigned long int num, int ret)
 	char	hexa_number[17];
 
 	i = 0;
-	temp = 0;
 	if (num == 0)
 	{
 		write(1, "0", 1);
 		return (1);
 	}
-	hexa_number = string_up(hexa_number, num, temp);
-	while (--i >= 0)
+	while (num != 0)
 	{
-		write(1, &hexa_number[i], 1);
-		ret++;
+		temp = num % 16;
+		if (temp < 10)
+			hexa_number[i++] = temp + 48;
+		else
+			hexa_number[i++] = temp + 55;
+		num = num / 16;
 	}
+	hexa_number[i] = '\0';
+	ret = printer(hexa_number, i, ret);
 	return (ret);
 }
 
