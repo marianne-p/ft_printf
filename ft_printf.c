@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/02 17:05:05 by mpihur            #+#    #+#             */
+/*   Updated: 2023/12/02 17:20:04 by mpihur           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
-//#include <stdio.h>
 
 int	ft_printf(const char *str, ...)
 {
-	va_list  ap;
-	int	i;
-	unsigned int  ret;
+	va_list			ap;
+	int				i;
+	unsigned int	ret;
 
 	i = 0;
 	ret = 0;
@@ -48,4 +59,4 @@ int	ft_checker(char c, va_list ap, int ret)
 	if (ret == -1)
 		return (0);
 	return (ret);
-} 
+}

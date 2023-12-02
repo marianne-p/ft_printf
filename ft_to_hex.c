@@ -1,17 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_to_hex.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/02 17:16:51 by mpihur            #+#    #+#             */
+/*   Updated: 2023/12/02 17:19:31 by mpihur           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	ft_to_hex(unsigned long int num, int ret)
+static char	*string(char *hexa_number, unsigned long int num, int temp)
 {
-	int	i;
-	int	temp;
-	char hexa_Number[17];
-
-	i = 0;
-	if (num == 0)
-	{
-		write(1, "0", 1);
-		return (1);
-	}
 	while (num != 0)
 	{
 		temp = num % 16;
@@ -19,30 +21,36 @@ int	ft_to_hex(unsigned long int num, int ret)
 			temp = temp + 48;
 		else
 			temp = temp + 87;
-		hexa_Number[i++] = temp;
+		hexa_number[i++] = temp;
 		num = num / 16;
 	}
-	hexa_Number[i] = '\0';
-	while (--i >= 0)
-	{
-		write(1, &hexa_Number[i], 1);
-		ret++;
-	}
-	return (ret);
+	hexa_number[i] = '\0';
 }
 
-int	ft_to_hex_up(unsigned long int num, int ret)
+int	ft_to_hex(unsigned long int num, int ret)
 {
-	int	i;
-	int	temp;
-	char hexa_Number[17];
+	int		i;
+	int		temp;
+	char	hexa_number[17];
 
 	i = 0;
+	temp = 0;
 	if (num == 0)
 	{
 		write(1, "0", 1);
 		return (1);
 	}
+	hexa_number = string(hexa_number, num, temp);
+	while (--i >= 0)
+	{
+		write(1, &hexa_number[i], 1);
+		ret++;
+	}
+	return (ret);
+}
+
+static char	*string_up(char *hexa_number, unsigned long int num, int temp)
+{
 	while (num != 0)
 	{
 		temp = num % 16;
@@ -50,13 +58,29 @@ int	ft_to_hex_up(unsigned long int num, int ret)
 			temp = temp + 48;
 		else
 			temp = temp + 55;
-		hexa_Number[i++] = temp;
+		hexa_number[i++] = temp;
 		num = num / 16;
 	}
-	hexa_Number[i] = '\0';
+	hexa_number[i] = '\0';
+}
+
+int	ft_to_hex_up(unsigned long int num, int ret)
+{
+	int		i;
+	int		temp;
+	char	hexa_number[17];
+
+	i = 0;
+	temp = 0;
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
+	hexa_number = string_up(hexa_number, num, temp);
 	while (--i >= 0)
 	{
-		write(1, &hexa_Number[i], 1);
+		write(1, &hexa_number[i], 1);
 		ret++;
 	}
 	return (ret);
@@ -76,14 +100,3 @@ int	ft_ptr(uintptr_t ptr, int ret)
 	ret = ft_to_hex(num, ret);
 	return (ret);
 }
-
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	ft_to_hex_up(1601);
-	ft_to_hex(1601);
-	ft_to_hex_up(1615);
-	ft_to_hex(1615);
-}*/

@@ -1,10 +1,22 @@
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/02 17:06:19 by mpihur            #+#    #+#             */
+/*   Updated: 2023/12/02 17:06:22 by mpihur           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdint.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdint.h>
 
 int				ft_checker(char c, va_list ap, int ret);
 int				ft_printf(const char *str, ...);
