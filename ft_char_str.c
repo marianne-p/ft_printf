@@ -6,13 +6,13 @@
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:07:39 by mpihur            #+#    #+#             */
-/*   Updated: 2023/12/02 17:07:41 by mpihur           ###   ########.fr       */
+/*   Updated: 2024/03/08 16:47:53 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	ft_strlen(char *str, unsigned int count)
+unsigned int	ft_strlen_pf(char *str, unsigned int count)
 {
 	if (!str)
 		return (count);

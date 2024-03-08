@@ -6,7 +6,7 @@
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:06:19 by mpihur            #+#    #+#             */
-/*   Updated: 2023/12/02 17:06:22 by mpihur           ###   ########.fr       */
+/*   Updated: 2024/03/08 16:47:25 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int				ft_ptr(uintptr_t ptr, int ret);
 int				ft_to_hex_up(unsigned long int num, int ret);
 int				ft_to_hex(unsigned long int num, int ret);
 /*working with str*/
-unsigned int	ft_strlen(char *str, unsigned int count);
+unsigned int	ft_strlen_pf(char *str, unsigned int count);
 int				ft_putchar(int a, int ret);
 int				ft_putstr(char *str, int ret);
 /*numbers*/
