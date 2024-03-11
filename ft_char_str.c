@@ -35,7 +35,7 @@ int	ft_putstr(char *str, int ret)
 		write(1, "(null)", 6);
 		return (6);
 	}
-	ret = ft_strlen(str, 0);
+	ret = ft_strlen_pf(str, 0);
 	write(1, str, ret);
 	return (ret);
 }
